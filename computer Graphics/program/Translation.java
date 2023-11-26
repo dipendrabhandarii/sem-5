@@ -34,14 +34,18 @@ public class Translation  extends JFrame{
          setSize(width,height);
          setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
          setVisible(true);
+      
     }
       public void paint(Graphics g) {
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, getWidth(), getHeight());
         g.setColor(Color.RED);
         g.drawLine(x1,y1,x2,y2);
         g.drawString("Before translation",x1,y1);
         g.setColor(Color.GREEN);
         g.drawLine(x1+dx,y1+dy,x2+dx,y2+dy);
         g.drawString("After translation",x1+dx,y1+dx);
+        
         
     }
       public static void main(String[] args) {

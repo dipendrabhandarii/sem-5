@@ -1,16 +1,21 @@
-
 //watermark sparkD123321
+//import the necessary class 
 import java.util.Scanner;
 import java.awt.*;
+
+import javax.sound.sampled.SourceDataLine;
 import javax.swing.JFrame;
-public class Reflection  extends JFrame{ //inheriting jframe 
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Line2D;
+
+public class Reflection2  extends JFrame{ //inheriting jframe 
   private Scanner sc = new Scanner(System.in); //for the user input
   private int x1,y1,x2,y2;
   final String str  = "Dipendra Bhandari";
   final String watermark= "watermark:sparkD123321";
   public void input()
-
-  { System.out.println(str);
+  {
+    System.out.println(str);
     System.out.println(watermark); 
     System.out.println("Hello, welcome here, Now enjoy the program");
     System.out.println("Enter x1 : "); 
@@ -21,10 +26,10 @@ public class Reflection  extends JFrame{ //inheriting jframe
     x2 = sc.nextInt();
     System.out.println("Enter y2 : ");
     y2 = sc.nextInt();
-    }
-    private int width=800;
-    private int height=800;
-    public Reflection()
+  }
+ private int width=800;
+ private int height=800;
+ public Reflection2()
     {
          setTitle("Line Reflection");
          setSize(width,height);
@@ -34,42 +39,31 @@ public class Reflection  extends JFrame{ //inheriting jframe
     public void paint(Graphics g) 
     {    
         // line before reflection
-          // Set the font size
-      int fontSize = 24;
-      Font font = new Font("Arial", Font.PLAIN, fontSize);
-      g.setFont(font);
-      g.setColor(Color.WHITE);
-      g.fillRect(0, 0, getWidth(), getHeight());
-
-
-    
+        int fontSize = 24;
+        Font font = new Font("Arial", Font.PLAIN, fontSize);
+        g.setFont(font);
         g.setColor(Color.RED);
         g.drawLine(x1+400,y1+400,x2+400,y2+400);
         g.drawString("befor reflection",x1+400, y1+400);
-        // reflection through origin
-        g.setColor(Color.PINK);
-        g.drawString(" reflection through origin",-x1+400, -y1+400);
-        g.drawLine(-x1+400,-y1+400,-x2+400,-y2+400);
-        // reflection through X-axis
+        // reflection on y=x
         g.setColor(Color.GREEN);
-        g.drawString(" reflection in x-axis",x1+400, -y1+400);
-        g.drawLine(x1+400,-y1+400,x2+400,-y2+400);
-        //reflection through y-axis
-        g.setColor(Color.blue);
-        g.drawLine(-x1+400,y1+400,-x2+400,y2+400);
-        g.drawString(" reflection in y-axis",-x1+400, y1+400);
+        g.drawString(" reflection in y=x",y1+400, x1+400);
+         g.drawLine(y1+400,x1+400,y2+400,x2+400);
+        //reflection on y=-x
+        g.setColor(Color.yellow);
+        g.drawString("reflection in y=-x", -y2+400, -x2+400);
+        g.drawLine(-y1+400, -x1+400, -y2+400, -x2+400);
+
       // frame is divided into 4 quardant
-      g.setColor(Color.black);
+      g.setColor(Color.white);
         g.drawLine(400,0,400,800);
         g.drawLine(0,400,800,400);
-       // g.drawRect(100, 100, 50, 100);
-        //g.fillOval(400,600,2,2);
     }
       public static void main(String[] args) {
     
-    Reflection t = new Reflection();
-    t.input();
-    //System.exit(0);   
+       Reflection2 t = new Reflection2(); 
+       t.input();
       }
     }
  
+
